@@ -19,7 +19,7 @@ export default function FilmDetail() {
 
   return (
     <>
-      <Link to="/">Home</Link>
+      <Link className='home' to="/">Home</Link>
       <div className='film-detail'>
         {/* PAGE: holds single film's details/characters */}
         {/* intakes getSingleFilm & getSingleChar, useParams */}

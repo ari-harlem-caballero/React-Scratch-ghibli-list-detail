@@ -7,8 +7,8 @@ export default function Film({ ghibliFilm }) {
       <div className='film'>
         {/* links to detail page....holds img/title for filmList */}
         <img src={ghibliFilm.image}/>
-        {ghibliFilm.title}
-      </div>;
+        <h2>{ghibliFilm.title}</h2>
+      </div>
     </Link>
   );
 }

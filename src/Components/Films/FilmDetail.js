@@ -18,16 +18,16 @@ export default function FilmDetail() {
   }, [params.id]);
 
   return (
-  <>
-  <Link to="/">Home</Link>
-  <div className='film-detail'>
-    {/* PAGE: holds single film's details/characters */}
-    {/* intakes getSingleFilm & getSingleChar, useParams */}
-    <img src={ghibliFilm.image}/>
-    <h1>{ghibliFilm.title}</h1>
-    <p className='film-info'>{ghibliFilm.director} -- {ghibliFilm.release_date}, {ghibliFilm.run_time}</p>
-    <p className='description'>{ghibliFilm.description}</p>
-  </div>
-  </>
+    <>
+      <Link to="/">Home</Link>
+      <div className='film-detail'>
+        {/* PAGE: holds single film's details/characters */}
+        {/* intakes getSingleFilm & getSingleChar, useParams */}
+        <img src={ghibliFilm.image}/>
+        <h1>{ghibliFilm.title}</h1>
+        <p className='film-info'><span className='director'>{ghibliFilm.director}</span> -- {ghibliFilm.release_date}, {ghibliFilm.run_time} mins</p>
+        <p className='description'>{ghibliFilm.description}</p>
+      </div>
+    </>
   );
 }

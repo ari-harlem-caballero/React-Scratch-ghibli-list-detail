@@ -1,12 +1,13 @@
 // all films, single film(id), single character(film_id)
 import { client } from './client';
 
-export async function getGhibliFilms() {
+export async function getGhibliFilms(from = 0, to = 6) {
   const response = await client
     .from('films')
-    .select();
+    .select()
+    .range(from, to);
 
-  return response(data);
+  return response.data;
 }
 
 export async function getSingleFilm(id) {
@@ -16,5 +17,5 @@ export async function getSingleFilm(id) {
     .match({ id })
     .single();
 
-  return response(data);
+  return response.data;
 }

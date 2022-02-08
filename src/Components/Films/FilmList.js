@@ -1,7 +1,14 @@
-import React from 'react';
+import Film from './Film';
 
-export default function FilmList() {
-  return <div>
+export default function FilmList({ ghibliFilms }) {
+  return (
+  <div className='film-list'>
     {/* maps over array of films */}
-  </div>;
+    {
+      ghibliFilms.map((ghibliFilm, i) => 
+        <Film key={ghibliFilm.title + i}
+          ghibliFilm={ghibliFilm} />
+      )}
+  </div>
+  );
 }

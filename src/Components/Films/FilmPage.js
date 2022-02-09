@@ -5,6 +5,8 @@ import FilmList from './FilmList';
 
 function FilmPage() {
   const [ghibliFilms, setGhibliFilms] = useState([]);
+  const [filterQuery, setFilterQuery] = useState('');
+  const [filteredFilms, setFilteredFilms] = useState([]);
   const [page, setPage] = useState(1);
   const perPage = 6;
 
@@ -20,6 +22,10 @@ function FilmPage() {
 
     fetchPage();
   }, [page]);
+
+  useEffect(() => {
+
+  }, []);
 
   return (
     <>

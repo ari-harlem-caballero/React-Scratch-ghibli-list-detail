@@ -6,7 +6,7 @@ import FilmList from './FilmList';
 function FilmPage() {
   const [ghibliFilms, setGhibliFilms] = useState([]);
   const [filterQuery, setFilterQuery] = useState('');
-  const [filteredFilms, setFilteredFilms] = useState([]);
+  // const [filteredFilms, setFilteredFilms] = useState([]);
   const [page, setPage] = useState(1);
   const perPage = 6;
 
@@ -15,17 +15,17 @@ function FilmPage() {
       // const magicNumber = page !== 1 && 1;
       const from = page * perPage - perPage;
       const to = page * perPage - 1;
-      const films = await getGhibliFilms(from, to);
+      const films = await getGhibliFilms(from, to, filterQuery);
 
       setGhibliFilms(films);
     }
 
     fetchPage();
-  }, [page]);
+  }, [page, filterQuery]);
 
-  useEffect(() => {
-
-  }, []);
+  // useEffect(() => {
+  //   const filteredGhibliFilms = ghibliFilms.filter()
+  // }, []);
 
   return (
     <>
@@ -33,9 +33,17 @@ function FilmPage() {
       <h4>Current Page: {page}</h4>
       <div className='buttons'>
         {/* setPage, buttons, holds FilmList */}
-        <button disabled={page === 1} onClick={() => setPage(page - 1)}>Previous Page</button>
-        <button onClick={() => setPage(page + 1)}>Next Page</button>
+        <button 
+          disabled={page === 1} 
+          onClick={() => setPage(page - 1)}
+        >Previous Page</button>
+        <button 
+          disabled={ghibliFilms.length < perPage}
+          onClick={() => setPage(page + 1)}
+        >Next Page</button>
       </div>
+      <input 
+        onChange={(e) => setFilterQuery(e.target.value)}/>
       <FilmList ghibliFilms={ghibliFilms} />
     </>
   );
